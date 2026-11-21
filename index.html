@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hồ sơ chuyên môn BS. CKII. Nguyễn Hoàng Anh – Chuyên khoa Mắt, Phẫu thuật Khúc xạ SMILE Pro, LASIK, Phaco và Chẩn đoán Bệnh lý Đáy mắt." />
+  <title>BS. CKII. Nguyễn Hoàng Anh — Hồ Sơ Bác Sĩ Chuyên Khoa Mắt</title>
+
+  <!-- Google Fonts với hỗ trợ dấu tiếng Việt chuẩn xác -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Preloader mượt mà khi mở trang -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__ring">
+        <svg viewBox="0 0 120 120" class="preloader__svg">
+          <circle cx="60" cy="60" r="52" class="preloader__track"></circle>
+          <circle cx="60" cy="60" r="52" class="preloader__arc"></circle>
+        </svg>
+        <span class="preloader__mark" data-bind="brandMark">BS.A</span>
+      </div>
+      <div class="preloader__caption">Đang tải hồ sơ chuyên môn</div>
+    </div>
+  </div>
+
+  <!-- Thanh tiến độ cuộn trang -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Con trỏ tương tác hiện đại (chỉ hiển thị trên thiết bị có chuột) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Thanh điều hướng nổi hiệu ứng kính mờ -->
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="Về đầu trang">
+        <span class="brand__badge" data-bind="brandMark">BS.A</span>
+        <span class="brand__text">
+          <strong data-bind="shortName">BS. CKII. Hoàng Anh</strong>
+          <small>Nhãn khoa &amp; Khúc xạ</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Điều hướng chính">
+        <span class="nav__pill" id="nav-pill" aria-hidden="true"></span>
+        <a href="#gioi-thieu" class="nav__link">Giới thiệu</a>
+        <a href="#chuyen-mon" class="nav__link">Chuyên môn</a>
+        <a href="#hanh-trinh" class="nav__link">Hành trình</a>
+        <a href="#cam-nhan" class="nav__link">Bệnh nhân</a>
+        <a href="#lich-kham" class="nav__link">Lịch khám</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Chuyển chế độ sáng tối" title="Đổi giao diện Sáng / Tối">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <button class="btn btn--primary btn--sm magnetic" type="button" data-open-booking>
+          <span>Đặt lịch khám</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14m-6-6 6 6-6 6"></path>
+          </svg>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Mobile -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" data-close-drawer></div>
+    <div class="mobile-drawer__panel">
+      <div class="mobile-drawer__links">
+        <a href="#gioi-thieu" class="mobile-drawer__link">Giới thiệu</a>
+        <a href="#chuyen-mon" class="mobile-drawer__link">Chuyên môn sâu</a>
+        <a href="#hanh-trinh" class="mobile-drawer__link">Hành trình &amp; Bằng cấp</a>
+        <a href="#cam-nhan" class="mobile-drawer__link">Cảm nhận bệnh nhân</a>
+        <a href="#lich-kham" class="mobile-drawer__link">Lịch khám &amp; Hỏi đáp</a>
+      </div>
+      <div class="mobile-drawer__footer">
+        <button class="btn btn--primary btn--full" type="button" data-open-booking>Đặt lịch khám ngay</button>
+        <a class="btn btn--outline btn--full" data-bind-href="contact.hotlineHref" href="tel:+84908123456">
+          Gọi hotline: <span data-bind="contact.hotlineDisplay">0908 123 456</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="orb orb--1" data-parallax="0.12"></div>
+        <div class="orb orb--2" data-parallax="-0.08"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="container hero__layout">
+        <div class="hero__content">
+          <div class="availability-pill reveal-up">
+            <span class="pulse-dot"></span>
+            <span data-bind="availabilityText">Đang nhận lịch khám tuần này</span>
+          </div>
+
+          <p class="hero__eyebrow reveal-up" data-delay="80" data-bind="eyebrow">
+            CHUYÊN KHOA MẮT • PHẪU THUẬT KHÚC XẠ &amp; ĐÁY MẮT
+          </p>
+
+          <h1 class="hero__title">
+            <span class="mask-line">
+              <span class="mask-line__inner" data-bind="heroHeadlineLine1">Giữ trọn ánh sáng,</span>
+            </span>
+            <span class="mask-line">
+              <span class="mask-line__inner hero__title-italic" data-bind="heroHeadlineLine2">nâng niu từng đôi mắt.</span>
+            </span>
+          </h1>
+
+          <p class="hero__lead reveal-up" data-delay="220" data-bind="heroSummary">
+            Hơn 15 năm đồng hành cùng hàng chục nghìn bệnh nhân tìm lại thị lực sắc nét bằng công nghệ nhãn khoa hiện đại, phác đồ cá nhân hóa và sự tận tâm trong từng ca khám.
+          </p>
+
+          <div class="hero__actions reveal-up" data-delay="300">
+            <button class="btn btn--primary btn--lg magnetic" type="button" data-open-booking>
+              <span>Đặt lịch tư vấn cùng bác sĩ</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14m-6-6 6 6-6 6"></path>
+              </svg>
+            </button>
+
+            <a href="#chuyen-mon" class="btn btn--ghost btn--lg magnetic">
+              <span>Khám phá chuyên môn</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14m-6-6 6 6 6-6"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero__trust reveal-up" data-delay="380">
+            <div class="trust-item">
+              <span class="trust-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+              </span>
+              <div>
+                <strong>Chuẩn y khoa quốc tế</strong>
+                <span>Quy trình vô khuẩn &amp; chẩn đoán 3D</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="trust-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </span>
+              <div>
+                <strong>Khám trực tiếp 1:1</strong>
+                <span>Giải thích trực quan trên hình ảnh OCT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Khung chân dung hiệu ứng 3D Tilt + Parallax Floating Cards -->
+        <div class="hero__visual reveal-scale" data-delay="180">
+          <div class="portrait-stage" id="portrait-stage" data-tilt>
+            <!-- Vòng tròn mống mắt quang học xoay chậm phía sau -->
+            <svg class="iris-orbit" viewBox="0 0 420 420" aria-hidden="true">
+              <circle cx="210" cy="210" r="196" class="iris-orbit__ring iris-orbit__ring--outer"></circle>
+              <circle cx="210" cy="210" r="168" class="iris-orbit__ring iris-orbit__ring--inner"></circle>
+              <circle cx="210" cy="14" r="5" class="iris-orbit__dot"></circle>
+              <circle cx="378" cy="210" r="4" class="iris-orbit__dot iris-orbit__dot--gold"></circle>
+            </svg>
+
+            <div class="portrait-frame">
+              <img
+                src="assets/images/doctor-portrait.jpg"
+                alt="Chân dung BS. CKII. Nguyễn Hoàng Anh"
+                class="portrait-frame__img"
+                data-bind-src="portraitImage"
+                loading="eager"
+              />
+              <div class="portrait-frame__sheen" aria-hidden="true"></div>
+
+              <div class="portrait-plate">
+                <div class="portrait-plate__title" data-bind="fullName">BS. CKII. Nguyễn Hoàng Anh</div>
+                <div class="portrait-plate__sub" data-bind="honorific">Bác sĩ Chuyên khoa II • Nhãn khoa &amp; Phẫu thuật Khúc xạ</div>
+              </div>
+            </div>
+
+            <!-- Thẻ nổi Glassmorphism Parallax 1 -->
+            <div class="float-card float-card--top" data-parallax="-0.06">
+              <div class="float-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"></path></svg>
+              </div>
+              <div>
+                <div class="float-card__value">12.500+</div>
+                <div class="float-card__label">Ca phẫu thuật thành công</div>
+              </div>
+            </div>
+
+            <!-- Thẻ nổi Glassmorphism Parallax 2 -->
+            <div class="float-card float-card--bottom" data-parallax="0.07">
+              <div class="float-card__metric">
+                <span class="float-card__badge">15+</span>
+                <div>
+                  <div class="float-card__value">Năm kinh nghiệm</div>
+                  <div class="float-card__label">Nhãn khoa • SMILE • Đáy mắt</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#gioi-thieu" class="scroll-cue" aria-label="Cuộn xuống xem giới thiệu">
+        <span class="scroll-cue__mouse">
+          <span class="scroll-cue__wheel"></span>
+        </span>
+        <span class="scroll-cue__label">Cuộn xuống</span>
+      </a>
+    </section>
+
+    <!-- ==================== KINETIC MARQUEE ==================== -->
+    <section class="marquee-band" aria-label="Công nghệ và Hiệp hội chuyên môn">
+      <div class="marquee" id="marquee-track">
+        <!-- Tự động nhân bản từ profile-data.js -->
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT & BENTO METRICS ==================== -->
+    <section class="section" id="gioi-thieu">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <span class="section-tag" data-bind="about.sectionTag">VỀ BÁC SĨ</span>
+          <h2 class="section-title" data-bind="about.title">Y học chính xác song hành cùng sự thấu cảm</h2>
+        </div>
+
+        <!-- Bento Grid có hiệu ứng đèn spotlight theo chuột -->
+        <div class="bento-grid">
+          <!-- Card 1: Triết lý nghề y (Nền xanh y khoa đậm sang trọng) -->
+          <article class="bento-card bento-card--quote spotlight-card reveal-up">
+            <div class="bento-card__eyebrow">TRIẾT LÝ ĐIỀU TRỊ</div>
+            <blockquote class="editorial-quote" data-bind="about.quote">
+              “Mỗi đôi mắt là một thế giới riêng biệt...”
+            </blockquote>
+            <div class="signature-row">
+              <div class="signature-line"></div>
+              <span data-bind="shortName">BS. CKII. Hoàng Anh</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Tiểu sử chi tiết -->
+          <article class="bento-card bento-card--bio spotlight-card reveal-up" data-delay="100">
+            <div class="bento-card__eyebrow">HỒ SƠ CHUYÊN MÔN</div>
+            <div class="bio-paragraphs" id="about-paragraphs"></div>
+            <div class="bio-chips">
+              <span class="chip">Chẩn đoán hình ảnh OCT</span>
+              <span class="chip">Phẫu thuật SMILE Pro</span>
+              <span class="chip">Phaco Đa tiêu cự</span>
+              <span class="chip">Bệnh lý Võng mạc</span>
+            </div>
+          </article>
+
+          <!-- Card 3: 4 Con số thống kê nhảy số khi cuộn tới -->
+          <div class="stats-strip" id="stats-grid"></div>
+
+          <!-- Card 4: Không gian phòng khám hiện đại -->
+          <article class="bento-card bento-card--clinic spotlight-card reveal-up" data-delay="120">
+            <div class="clinic-visual">
+              <img
+                src="assets/images/clinic-interior.jpg"
+                alt="Không gian phòng khám nhãn khoa hiện đại"
+                data-bind-src="clinicImage"
+                loading="lazy"
+              />
+              <div class="clinic-visual__overlay">
+                <span class="clinic-pill">Môi trường vô khuẩn • Trang thiết bị thế hệ mới</span>
+                <h3>Không gian thăm khám tĩnh lặng &amp; chuẩn xác</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: 3 Nguyên tắc cốt lõi -->
+          <div class="principles-grid" id="principles-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SPECIALTIES / CHUYÊN MÔN SÂU ==================== -->
+    <section class="section section--tinted" id="chuyen-mon">
+      <div class="container">
+        <div class="section-head section-head--split reveal-up">
+          <div>
+            <span class="section-tag">CHUYÊN MÔN SÂU</span>
+            <h2 class="section-title">Các lĩnh vực thăm khám &amp; điều trị trọng tâm</h2>
+          </div>
+          <p class="section-subtitle">
+            Chọn từng chuyên khoa bên dưới để xem chi tiết quy trình, thời gian thực hiện và phác đồ chăm sóc cùng bác sĩ.
+          </p>
+        </div>
+
+        <div class="specialty-workspace">
+          <!-- Danh sách tab chuyên khoa -->
+          <div class="specialty-list" id="specialty-list" role="tablist" aria-label="Danh sách chuyên môn"></div>
+
+          <!-- Bảng chi tiết chuyển động mượt mà -->
+          <div class="specialty-detail spotlight-card reveal-up" id="specialty-detail" role="tabpanel" aria-live="polite">
+            <div class="specialty-detail__top">
+              <span class="specialty-detail__num" id="detail-num">01</span>
+              <span class="specialty-detail__tag" id="detail-tag">Mũi nhọn</span>
+            </div>
+            <h3 class="specialty-detail__title" id="detail-title"></h3>
+            <p class="specialty-detail__desc" id="detail-desc"></p>
+
+            <div class="specialty-metrics">
+              <div class="s-metric">
+                <span class="s-metric__label">Thời gian thực hiện</span>
+                <strong class="s-metric__val" id="detail-duration"></strong>
+              </div>
+              <div class="s-metric">
+                <span class="s-metric__label">Hồi phục dự kiến</span>
+                <strong class="s-metric__val" id="detail-recovery"></strong>
+              </div>
+            </div>
+
+            <div class="specialty-highlights">
+              <div class="specialty-highlights__label">Điểm nổi bật trong quy trình</div>
+              <ul class="check-list" id="detail-highlights"></ul>
+            </div>
+
+            <div class="specialty-detail__cta">
+              <button class="btn btn--primary magnetic" type="button" id="detail-book-btn">
+                <span>Đặt lịch tư vấn dịch vụ này</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
+              </button>
+              <a class="btn btn--ghost" data-bind-href="contact.hotlineHref" href="tel:+84908123456">
+                Tư vấn nhanh qua điện thoại
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== JOURNEY & CREDENTIALS ==================== -->
+    <section class="section" id="hanh-trinh">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <span class="section-tag">HÀNH TRÌNH Y KHOA</span>
+          <h2 class="section-title">Quá trình đào tạo, công tác &amp; bằng cấp chuyên môn</h2>
+        </div>
+
+        <div class="journey-layout">
+          <!-- Timeline dọc có tia sáng chạy theo thao tác cuộn trang -->
+          <div class="timeline" id="timeline-container">
+            <div class="timeline__rail" aria-hidden="true">
+              <div class="timeline__beam" id="timeline-beam"></div>
+            </div>
+            <div class="timeline__items" id="timeline-items"></div>
+          </div>
+
+          <!-- Cột bằng cấp & chứng nhận -->
+          <aside class="credentials-panel">
+            <div class="credentials-panel__head reveal-up">
+              <span class="section-tag">CHỨNG NHẬN &amp; GHI NHẬN</span>
+              <h3>Học vị &amp; Chứng chỉ tiêu biểu</h3>
+            </div>
+            <div class="credentials-grid" id="credentials-grid"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS / CẢM NHẬN BỆNH NHÂN ==================== -->
+    <section class="section section--dark" id="cam-nhan">
+      <div class="container">
+        <div class="testimonial-header reveal-up">
+          <div>
+            <span class="section-tag section-tag--light">CẢM NHẬN THỰC TẾ</span>
+            <h2 class="section-title section-title--light">Niềm tin từ những đôi mắt sáng khỏe trở lại</h2>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="circle-btn magnetic" id="prev-testimonial" type="button" aria-label="Xem cảm nhận trước">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg>
+            </button>
+            <button class="circle-btn magnetic" id="next-testimonial" type="button" aria-label="Xem cảm nhận tiếp theo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="testimonial-stage reveal-up" data-delay="120" id="testimonial-stage">
+          <div class="testimonial-quote-mark" aria-hidden="true">“</div>
+          <div class="testimonial-slides" id="testimonial-slides"></div>
+
+          <div class="testimonial-footer">
+            <div class="testimonial-dots" id="testimonial-dots" role="tablist" aria-label="Chọn đánh giá"></div>
+            <div class="testimonial-progress">
+              <div class="testimonial-progress__bar" id="testimonial-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCHEDULE, FAQ & DIRECT BOOKING ==================== -->
+    <section class="section" id="lich-kham">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <span class="section-tag">LỊCH KHÁM &amp; ĐẶT HẸN</span>
+          <h2 class="section-title">Chủ động thời gian, thăm khám nhẹ nhàng không chờ đợi</h2>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-info-col">
+            <!-- Bảng lịch khám -->
+            <div class="schedule-card spotlight-card reveal-up">
+              <div class="schedule-card__head">
+                <h3>Lịch làm việc dự kiến</h3>
+                <span class="live-badge"><span class="pulse-dot"></span> Nhận lịch online</span>
+              </div>
+              <div class="schedule-list" id="schedule-list"></div>
+              <div class="schedule-address">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <div>
+                  <strong data-bind="contact.clinicName">Trung tâm Nhãn khoa &amp; Phẫu thuật Khúc xạ</strong>
+                  <span data-bind="contact.address">Số 128 Nguyễn Đình Chiểu, Quận 3, TP. Hồ Chí Minh</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Câu hỏi thường gặp (Accordion mượt) -->
+            <div class="faq-block reveal-up" data-delay="120">
+              <h3 class="faq-block__title">Câu hỏi thường gặp trước khi đi khám</h3>
+              <div class="faq-list" id="faq-list"></div>
+            </div>
+          </div>
+
+          <!-- Form đặt lịch trực tiếp -->
+          <div class="booking-card spotlight-card reveal-up" data-delay="140">
+            <div class="booking-card__head">
+              <span class="section-tag">ĐĂNG KÝ KHÁM</span>
+              <h3>Đặt lịch hẹn cùng bác sĩ</h3>
+              <p>Để lại thông tin, trợ lý bác sĩ sẽ liên hệ xác nhận khung giờ trong vòng 15 phút.</p>
+            </div>
+
+            <form class="booking-form" id="inline-booking-form" novalidate>
+              <div class="form-row">
+                <label class="field">
+                  <span>Họ và tên bệnh nhân *</span>
+                  <input type="text" name="name" placeholder="Ví dụ: Nguyễn Minh Anh" required />
+                </label>
+                <label class="field">
+                  <span>Số điện thoại / Zalo *</span>
+                  <input type="tel" name="phone" placeholder="Ví dụ: 0908 xxx xxx" required />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label class="field">
+                  <span>Dịch vụ quan tâm</span>
+                  <select name="service" id="inline-service-select"></select>
+                </label>
+                <label class="field">
+                  <span>Ngày khám dự kiến</span>
+                  <input type="date" name="date" id="inline-date-input" />
+                </label>
+              </div>
+
+              <div class="field">
+                <span>Khung giờ ưu tiên</span>
+                <div class="slot-chips" data-slot-group>
+                  <button type="button" class="slot-chip is-selected" data-slot="08:00 – 09:30">08:00 – 09:30</button>
+                  <button type="button" class="slot-chip" data-slot="09:30 – 11:00">09:30 – 11:00</button>
+                  <button type="button" class="slot-chip" data-slot="14:00 – 15:30">14:00 – 15:30</button>
+                  <button type="button" class="slot-chip" data-slot="15:30 – 17:00">15:30 – 17:00</button>
+                </div>
+                <input type="hidden" name="slot" value="08:00 – 09:30" />
+              </div>
+
+              <label class="field">
+                <span>Triệu chứng hoặc ghi chú thêm (không bắt buộc)</span>
+                <textarea name="note" rows="3" placeholder="Ví dụ: Muốn khám kiểm tra mắt để mổ cận SMILE Pro, hoặc tái khám đáy mắt..."></textarea>
+              </label>
+
+              <button type="submit" class="btn btn--primary btn--lg btn--full magnetic">
+                <span>Gửi yêu cầu đặt lịch</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+              </button>
+
+              <div class="quick-contact-row">
+                <a class="quick-link" data-bind-href="contact.hotlineHref" href="tel:+84908123456">
+                  <span>Hotline:</span> <strong data-bind="contact.hotlineDisplay">0908 123 456</strong>
+                </a>
+                <a class="quick-link" data-bind-href="contact.zaloUrl" href="https://zalo.me/0908123456" target="_blank" rel="noopener">
+                  <span>Chat nhanh:</span> <strong>Zalo Trợ lý Bác sĩ</strong>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="brand brand--light">
+            <span class="brand__badge" data-bind="brandMark">BS.A</span>
+            <span class="brand__text">
+              <strong data-bind="fullName">BS. CKII. Nguyễn Hoàng Anh</strong>
+              <small data-bind="honorific">Bác sĩ Chuyên khoa II • Nhãn khoa</small>
+            </span>
+          </div>
+          <p class="footer__desc">
+            Trang hồ sơ thông tin chuyên môn và hỗ trợ đặt lịch khám nhãn khoa trực tuyến. Mọi thông tin y khoa mang tính tham khảo và được cá nhân hóa khi thăm khám trực tiếp.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Điều hướng</h4>
+          <a href="#gioi-thieu">Về bác sĩ</a>
+          <a href="#chuyen-mon">Chuyên môn sâu</a>
+          <a href="#hanh-trinh">Quá trình công tác</a>
+          <a href="#cam-nhan">Cảm nhận bệnh nhân</a>
+          <a href="#lich-kham">Lịch khám &amp; Hỏi đáp</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Liên hệ phòng khám</h4>
+          <a data-bind-href="contact.hotlineHref" href="tel:+84908123456">
+            ĐT: <span data-bind="contact.hotlineDisplay">0908 123 456</span>
+          </a>
+          <a href="mailto:lienhe@bshoanganh.vn" data-bind="contact.email">lienhe@bshoanganh.vn</a>
+          <span class="footer__address" data-bind="contact.address">Số 128 Nguyễn Đình Chiểu, Quận 3, TP. Hồ Chí Minh</span>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="current-year">2026</span> <span data-bind="fullName">BS. CKII. Nguyễn Hoàng Anh</span>. Bảo lưu mọi quyền.</span>
+        <a href="#top" class="back-top magnetic" aria-label="Về đầu trang">
+          <span>Về đầu trang</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"></path></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL ĐẶT LỊCH NHANH ==================== -->
+  <div class="modal" id="booking-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog">
+      <button class="modal__close" type="button" data-close-modal aria-label="Đóng cửa sổ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="modal__content" id="modal-form-view">
+        <span class="section-tag">ĐẶT LỊCH NHANH</span>
+        <h3 id="modal-title">Đăng ký lịch khám cùng <span data-bind="shortName">BS. Hoàng Anh</span></h3>
+        <p class="modal__sub">Chọn chuyên khoa và khung giờ thuận tiện nhất cho bạn.</p>
+
+        <form class="booking-form" id="modal-booking-form" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span>Họ và tên *</span>
+              <input type="text" name="name" placeholder="Nhập họ tên của bạn" required />
+            </label>
+            <label class="field">
+              <span>Số điện thoại *</span>
+              <input type="tel" name="phone" placeholder="09xx xxx xxx" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Chuyên khoa / Dịch vụ</span>
+              <select name="service" id="modal-service-select"></select>
+            </label>
+            <label class="field">
+              <span>Ngày khám</span>
+              <input type="date" name="date" id="modal-date-input" />
+            </label>
+          </div>
+
+          <div class="field">
+            <span>Khung giờ</span>
+            <div class="slot-chips" data-slot-group>
+              <button type="button" class="slot-chip is-selected" data-slot="08:00 – 09:30">08:00 – 09:30</button>
+              <button type="button" class="slot-chip" data-slot="09:30 – 11:00">09:30 – 11:00</button>
+              <button type="button" class="slot-chip" data-slot="14:00 – 15:30">14:00 – 15:30</button>
+              <button type="button" class="slot-chip" data-slot="15:30 – 17:00">15:30 – 17:00</button>
+            </div>
+            <input type="hidden" name="slot" value="08:00 – 09:30" />
+          </div>
+
+          <label class="field">
+            <span>Ghi chú tình trạng mắt</span>
+            <textarea name="note" rows="2" placeholder="Mô tả ngắn nhu cầu khám của bạn..."></textarea>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--lg btn--full">
+            <span>Xác nhận đặt lịch</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Trạng thái xác nhận thành công có animation checkmark -->
+      <div class="modal__success" id="modal-success-view" hidden>
+        <div class="success-badge">
+          <svg viewBox="0 0 52 52" class="success-check">
+            <circle cx="26" cy="26" r="24" fill="none" />
+            <path fill="none" d="M15 27l7 7 15-16" />
+          </svg>
+        </div>
+        <h3>Đã tiếp nhận yêu cầu đặt lịch!</h3>
+        <p id="success-summary">Cảm ơn bạn. Trợ lý của bác sĩ sẽ liên hệ xác nhận trong ít phút.</p>
+        <button type="button" class="btn btn--primary" data-close-modal>Hoàn tất</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast thông báo -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/profile-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
